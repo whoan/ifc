@@ -140,8 +140,8 @@ int main(int argc, char** argv)
         for (const auto& file : arguments.files)
             process_ifc(file, arguments.options);
     }
-    catch (...)
+    catch (const std::exception& ex)
     {
-        translate_exception();
+        std::cerr << ex.what() << std::endl;
     }
 }
